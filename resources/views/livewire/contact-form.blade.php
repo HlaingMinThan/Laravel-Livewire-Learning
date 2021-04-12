@@ -1,6 +1,14 @@
 <div>
     <form wire:submit.prevent="submit">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            @if ($session)
+              <div class="bg-green-200 text-dark font-bold p-3 mb-6 flex justify-between">
+                <div>
+                  {{$session }}
+                </div>
+                <div wire:click="$set('session',null)" class="cursor-pointer">&times;</div>
+              </div>
+            @endif
             <div class="-mx-3 md:flex mb-6">
               <div class="md:w-full px-3 mb-6 md:mb-0">
                 <label class="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">

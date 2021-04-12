@@ -8,6 +8,7 @@ class ContactForm extends Component
 {
     public $name;
     public $email;
+    public $session;
     protected $rules = [
         'name' => 'required|min:6',
         'email' => 'required|email',
@@ -27,7 +28,15 @@ class ContactForm extends Component
     {
         // validate
         $attr = $this->validate();
+
         // save in the database
-            // Contact::create($attr);
+        // Contact::create($attr);
+
+        //session msg first way
+
+        // session()->flash('message', 'contact message sent');
+
+        //session msg control with state
+        $this->session = 'contact message sent';
     }
 }
