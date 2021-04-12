@@ -23,6 +23,7 @@
     </head>
     <body class="antialiased p-10">
         <h1 class="text-3xl mt-5 text-blue-500 text-center mb-10">Tailwind Css and Livewire setup </h1>
+        <livewire:contact-form/>
         @livewireScripts
     </body>
 </html>
