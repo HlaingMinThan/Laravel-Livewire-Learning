@@ -28,7 +28,7 @@ class ContactForm extends Component
     {
         // validate
         $attr = $this->validate();
-
+        sleep(6);
         // save in the database
         // Contact::create($attr);
 
