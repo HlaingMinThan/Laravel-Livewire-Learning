@@ -8,6 +8,15 @@ class ContactForm extends Component
 {
     public $name;
     public $email;
+    protected $rules = [
+        'name' => 'required|min:6',
+        'email' => 'required|email',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     public function render()
     {
@@ -17,10 +26,7 @@ class ContactForm extends Component
     public function submit()
     {
         // validate
-        $attr = $this->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
+        $attr = $this->validate();
         // save in the database
             // Contact::create($attr);
     }
