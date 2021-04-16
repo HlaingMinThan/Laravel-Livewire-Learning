@@ -2,7 +2,13 @@
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
             <div>
-                <h2 class="text-2xl font-semibold leading-tight">Todos table</h2>
+                <div class="flex justify-between">
+                    <h2 class="text-2xl font-semibold leading-tight">Todos table</h2>
+                    <div>
+                        <input wire:model="filterByActive"  type="checkbox" class="mr-3 " id=""><span class="text-green-500">filter only active</span>
+                    </div>
+                </div>
+                <input type="search" wire:model="search" placeholder="search here..." class="my-3 border b-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"/>
             </div>
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
