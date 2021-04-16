@@ -20,12 +20,18 @@
                                     id
                                 </th>
                                 <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Username
+                                    class="w-4/12 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    <button class="flex" wire:click="sortBy('name')">
+                                        <div class="mr-3">Username</div>
+                                        <img src="https://img.icons8.com/pastel-glyph/64/000000/sorting-arrows--v1.png" width="15px" height="15px"/>
+                                    </button>
                                 </th>
                                 <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    User email
+                                    class="w-4/12 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    <button class="flex" wire:click="sortBy('email')">
+                                        <div class="mr-3">User Email</div>
+                                        <img src="https://img.icons8.com/pastel-glyph/64/000000/sorting-arrows--v1.png" width="15px" height="15px"/>
+                                    </button>
                                 </th>
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">

@@ -10,6 +10,9 @@ class Datatable extends Component
 {
     use WithPagination;
 
+    public $sortField;
+    public $sortAsc = true;
+
     public $search;
     public $filterByActive = true;
 
@@ -18,6 +21,16 @@ class Datatable extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function sortBy($col)
+    {
+        if ($col === $this->sortField) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortField = $col;
+            $this->sortAsc = true;
+        }
     }
 
     public function render()
@@ -29,6 +42,9 @@ class Datatable extends Component
             ->orWhere('email', 'like', "%{$this->search}%");//B
         })
             ->where('active', $this->filterByActive)//C
+            ->when($this->sortField, function ($query) {
+                $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+            })
             ->paginate(10);
         return view('livewire.datatable', compact('users'));
     }
