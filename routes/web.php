@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = Post::all();
+    return view('welcome', compact('posts'));
 });
+
+Route::get('/posts/{post}', function (Post $post) {
+    return view('post', compact('post'));
+});
+
+Route::get('/posts/{post}/comment', function (Post $post) {
+    request()->validate([
+        'body' => 'required|min:5'
+    ]);
+    $post->comments()->create([
+        'user_id' => 1,
+        'body' => request('body')
+    ]);
+    return back();
+})->name('comments.store');
