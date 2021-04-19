@@ -40,4 +40,8 @@
             Update
         </button>
     </div>
+    <h1 class="text-2xl mt-5">Polling example</h1>
+    <div wire:poll.1s>
+        Current time: {{ now() }}
+    </div>
 </form>
